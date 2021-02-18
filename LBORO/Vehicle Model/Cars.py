@@ -37,3 +37,34 @@ class Nissan_Leaf(CarData):
                     motor_p_max=80000.0 # assumed
                     )
         super().__init__()
+
+
+class PRECar(CarData):
+
+    def __init__(self):
+        self._data = dict(batt_soc=65.0,  # NEED TO FIND
+                          batt_v_min=40.0,  # UNKNOWN
+                          batt_v_max=117.6,
+                          batt_i_max=920.0,
+                          batt_p_max=90000.0,
+                          batt_kwh=5.0,  # adjusted to 5 for regs 6.25 originally
+                          car_cd=1.4,  # NEED TO FIGURE OUT
+                          car_area=1.0,  # NEED TO FIGURE OUT
+                          car_mass=340.0,  # NEED TO DOUBLE CHECK
+                          wheel_diameter=0.508,  # NEED TO CHECK
+                          wheel_mass=9.0,  # NEED TO FIND
+                          wheel_width=0.3,  # NEED TO FIND
+                          brake_diameter=0.165,  # Estimation with calliper
+                          brake_max_torque=386.08,  # Deceleration of 20m/s^2 divided among four brakes
+                          motor_rotor_mass=9.5,  # NEED TO CHECK
+                          motor_rotor_diameter=0.025,  # 25mm
+                          motor_max_torque=80.0,
+                          motor_max_rpm=7200,
+                          motor_reduction_ratio=5.0,
+                          motor_v_max=110.0,  # MAX ACC VOLTAGE (NOT MOTOR)
+                          motor_v_min=96.0,
+                          motor_i_max=425.0,
+                          motor_p_max=36800  # 36.8Kw Peak, 23kW cont
+                          )
+        super().__init__()
+

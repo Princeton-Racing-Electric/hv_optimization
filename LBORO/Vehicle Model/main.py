@@ -11,7 +11,7 @@ VERSION = 2.1
 ###    IMPORT LIBRARIES     ###
 ###############################
 from elevate_includes import *
-from Cars import Nissan_Leaf
+from Cars import PRECar
 from ElectricityClass import joules_to_kwh
 
 ###############################
@@ -25,7 +25,7 @@ feed_forward = False
 ###############################
 ###   TEST DATAFILE NAME    ###
 ###############################
-filename     = "DriveCycles/WLTP_kph"
+filename     = "DriveCycles/step_kph"
 #filename     = "realcycle_kph"
 
 
@@ -53,7 +53,7 @@ if __name__ == "__main__":
     timer    = Continuous_dt(datafile.dt, 50)
 
     # Spawn vehicle(s)
-    mycar = CarClass(Nissan_Leaf().data)
+    mycar = CarClass(PRECar().data)
     
     disp.disp(datafile.num_lines, " lines in input file")
 
@@ -221,7 +221,7 @@ if __name__ == "__main__":
         ax2.plot(timestamp, data_out['speedI'], label='speedI', linestyle=':')
         ax2.plot(timestamp, data_out['speedD'], label='speedD', linestyle=':')
         ax2.set_ylabel('Speed Ctrl \n 0-255')
-        #ax2.set_ylim([-260, 260])
+        #ax2.set_ylim([-100, 500])
         if xlim is not False:
             ax2.set_xlim(xlim)
             ax2.relim()
@@ -238,7 +238,7 @@ if __name__ == "__main__":
         ax3.plot(timestamp, data_out['motorI'], label='motorI', linestyle=':')
         ax3.plot(timestamp, data_out['motorD'], label='motorD', linestyle=':')
         ax3.set_ylabel('Motor Ctrl \n 0-255')
-        #ax3.set_ylim([-260, 260]
+        #ax3.set_ylim([-260, 260])
         if xlim is not False:
             ax3.set_xlim(xlim)
             ax3.relim()
@@ -308,7 +308,7 @@ if __name__ == "__main__":
         ax2.plot(timestamp, data_out['motor_i'], label='motor_i')
         ax2.plot([0,max(timestamp)], [267,267],  linestyle='--', color='k')
         ax2.set_ylabel('Current')
-        ax2.set_ylim([0, 300])
+        ax2.set_ylim([0, 500])
         if xlim is not False:
             ax2.set_xlim(xlim)
             ax2.relim()
@@ -325,7 +325,7 @@ if __name__ == "__main__":
         ax3.plot(timestamp, data_out['tq_w0'],   label='tq_w0', linestyle='-')
         ax3.plot(timestamp, data_out['tq_b0'],   label='tq_b0', linestyle=':')
         ax3.set_ylabel('Torque')
-        #ax3.set_ylim([0, 300])
+        ax3.set_ylim([0, 2000])
         if xlim is not False:
             ax3.set_xlim(xlim)
             ax3.relim()
