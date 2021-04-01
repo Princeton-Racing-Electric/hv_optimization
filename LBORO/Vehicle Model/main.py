@@ -5,6 +5,39 @@
 # ELEVATE (ELEctric Vehicles and Advanced TEchnologies)
 # Simon Howroyd, Loughborough University 2018
 
+
+def max_current(currents):
+    return max(currents)
+
+def average_current(currents):
+    return sum(currents) / len(currents)
+
+def peak_sustained_current(currents):
+    peak_currents = []
+    for i in range(20, len(currents)):
+        subarray = currents[i-20:i]
+        peak_currents.append(sum(subarray)/20)
+
+    return max(peak_currents)
+
+def plot_graphs(x, currents):
+    plt.figure(3)
+    plt.plot(x, currents)
+
+    x = x[20:]
+
+    peak_currents = []
+    for i in range(20, len(currents)):
+        subarray = currents[i - 20:i]
+        peak_currents.append(sum(subarray) / 20)
+
+    plt.figure(4)
+    plt.plot(x, peak_currents)
+    plt.show()
+
+
+
+
 VERSION = 2.1
 
 ###############################
@@ -189,6 +222,7 @@ if __name__ == "__main__":
 
         xlim = False
         #xlim = [1.9, 2.0]
+
         
 
         ###############################
@@ -370,6 +404,15 @@ if __name__ == "__main__":
     ###############################
     if graph:
         plt.show()
+
+    current = data_out['batt_i']
+    print(max_current(current))
+    print(peak_sustained_current(current))
+    plot_graphs(timestamp, current)
+
+
+
+
 
 ###############################
 ###############################
