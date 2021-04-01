@@ -295,6 +295,12 @@ if __name__ == "__main__":
         ax1.grid(True)
         leg1 = ax1.legend(loc='upper right', shadow=True)
 
+         ###############################
+         ###   CALCULATE WIRE GAUGE  ###
+         ###############################
+        print(data_out['batt_i'])
+
+
         ###############################
         ###    FIG 2, SUBPLOT 2     ###
         ###############################
