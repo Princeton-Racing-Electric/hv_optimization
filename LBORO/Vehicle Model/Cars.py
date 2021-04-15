@@ -42,7 +42,7 @@ class Nissan_Leaf(CarData):
 class PRECar(CarData):
 
     def __init__(self):
-        self._data = dict(batt_soc=65.0,  # NEED TO FIND
+        self._data = dict(batt_soc=95.0,  # NEED TO FIND
                           batt_v_min=40.0,  # UNKNOWN
                           batt_v_max=117.6,
                           batt_i_max=920.0,
