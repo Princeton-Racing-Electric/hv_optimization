@@ -58,7 +58,7 @@ feed_forward = False
 ###############################
 ###   TEST DATAFILE NAME    ###
 ###############################
-filename     = "DriveCycles/endurance_shorter_fractional"
+filename     = "DriveCycles/acceleration_kph"
 #filename     = "realcycle_kph"
 
 
@@ -405,7 +405,7 @@ if __name__ == "__main__":
     if graph:
         plt.show()
 
-    current = data_out['motor_i']
+    current = data_out['batt_i']
     print(max_current(current))
     print(peak_sustained_current(current))
     plot_graphs(timestamp, current)
