@@ -50,7 +50,7 @@ class PRECar(CarData):
                           batt_kwh=5.0,  # adjusted to 5 for regs 6.25 originally
                           car_cd=1.4,  # NEED TO FIGURE OUT
                           car_area=1.0,  # NEED TO FIGURE OUT
-                          car_mass=231.83,  # calculated 2/17/21
+                          car_mass=231.83,  # Calculated 2/17/21
                           wheel_diameter=0.508,  # NEED TO CHECK
                           wheel_mass=9.0,  # NEED TO FIND
                           wheel_width=0.3,  # NEED TO FIND
