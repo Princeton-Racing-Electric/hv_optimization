@@ -3,13 +3,13 @@
 VERSION = 1.0
 
 import telnetlib, time, sys, os, datetime, copy
-import matlab.engine
+import matlab
 import matplotlib.pyplot as plt
 import numpy as np
 from TdiLoadbankClass import TdiLoadbank
-from battery_sw import Battery_Model
+#from battery_sw import Battery_Model
 from CarClass import CarClass
-from DataInputClass import DataInputClass
+from DataInputClass import DataIoClass  # changed from DataInputClass to import DataIoClass
 from DataInputClass import Continuous_dt
 from ControllerClass import ControllerClass
 from Cars import Nissan_Leaf
@@ -66,7 +66,7 @@ if __name__ == "__main__":
     
     #print(datafile.num_lines, 'lines in input file\n')
 
-    brake = BrakesClass(diameter=0.1, max_torque=500.0, kwargs=None)
+    brake = BrakesClass("""diameter=0.1, max_torque=500.0,""", kwargs=None)
     wheel = WheelClass(brake, kwargs=dict(wheel_diameter=0.2159, car_mass=1521.0))
     motor = MotorClass(wheel, kwargs=dict(motor_max_torque=280, motor_v_min = 400.0, motor_v_max=300.0, motor_i_max=266.0, motor_p_max=80000.0))
 
@@ -96,7 +96,7 @@ if __name__ == "__main__":
             motor.motor_value = 99-i
             if i > 75:
                 wheel.brake_value += 1
-        elif i is 99:
+        elif i == 99:
             finished = True
 
         motor.update(dt)

@@ -83,6 +83,7 @@ if __name__ == "__main__":
     #eng.quit()
     
     datafile = DataIoClass(filename+".tsv")
+    # print(datafile.dt)
     timer    = Continuous_dt(datafile.dt, 50)
 
     # Spawn vehicle(s)
@@ -123,6 +124,8 @@ if __name__ == "__main__":
         ###############################
         ###      UPDATE MODEL       ###
         ###############################
+        #
+        # print(timer.dt)
         mycar.update(timer.dt)
 
 
@@ -188,8 +191,8 @@ if __name__ == "__main__":
     kwh_out  = joules_to_kwh(mycar.battery_electricity.get('total_energy_out'))
     kwh_in   = joules_to_kwh(mycar.battery_electricity.get('total_energy_in'))
 
-    disp.disp("Odometer ",         round(odometer,1), "km")
-    disp.disp("Odometer (wheels)", round(odometerW,1), "km")
+    disp.disp("Odometer ",         round(odometer,10), "km")
+    disp.disp("Odometer (wheels)", round(odometerW,10), "km")
     disp.disp("Soc at end ",       round(soc,1), "%")
     disp.disp("Total energy out ", round(kwh_out, 1), "kWh")
     disp.disp("Total energy in ",  round(kwh_in, 1),  "kWh")

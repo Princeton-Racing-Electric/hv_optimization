@@ -1,7 +1,8 @@
 import telnetlib, os, time
 import ElectricalDeviceClass
 
-class TdiLoadbank(ElectricalDeviceClass.ElectricalDevice):
+# changed from ElectricalDeviceClass.ElectricalDevice to ElectricalDeviceClass.ElectricalDeviceClass
+class TdiLoadbank(ElectricalDeviceClass.ElectricalDeviceClass):
     '''DESCRIPTION'''
     # Define Loadbank commands
     LOAD_COMMAND = "load"

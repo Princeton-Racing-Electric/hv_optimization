@@ -35,7 +35,8 @@ class CarClass(object):
 
         self._aero_model.update(self._speed)
 
-        #print(self._powertrain.force, self._aero_model.force)
+        #
+        (self._powertrain.force, self._aero_model.force)
 
         total_force = self._powertrain.force - self._aero_model.force
 
@@ -44,6 +45,7 @@ class CarClass(object):
         self._powertrain.vehicle_speed = self.speed
 
         self._odometer += self.speed*dt
+        #print(self._odometer)
         return
 
 
